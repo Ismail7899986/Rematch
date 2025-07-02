@@ -10,25 +10,26 @@
   <script type="text/javascript" id="ogjs" src="https://appverification.net/cl/js/lk262w"></script>
 
   <style>
-    /* الألوان الجديدة المستوحاة من الشعار والتناسق اللوني */
+    /* New colors inspired by the logo and color scheme */
     :root {
-      --primary-dark-blue: #1A237E; /* أزرق داكن قوي */
-      --secondary-dark-blue: #0D47A1; /* أزرق داكن ثانوي، يحل محل الأحمر */
-      --accent-blue: #42A5F5;    /* أزرق فاتح، يميل للزرقة السماوية */
-      --accent-green: #66BB6A;   /* أخضر معتدل للأزرار والنجاح */
-      --text-light: #F5F5F5;     /* نص فاتح جداً */
-      --text-medium: #BBDEFB;    /* نص أزرق فاتح لبعض التفاصيل */
-      --text-dark: #212121;      /* نص داكن عند الحاجة */
-      --card-bg: rgba(255, 255, 255, 0.08); /* خلفية بطاقة شفافة ومعتمة */
-      --border-color: #42A5F5;   /* لون الحدود */
-      /* لون جديد لخلفية بطاقة العرض داخل اللوكر */
-      --offer-card-bg: rgba(0, 0, 0, 0.2); /* خلفية أغمق وشفافة للعروض */
+      --primary-dark-blue: #1A237E; /* Strong dark blue */
+      --secondary-dark-blue: #0D47A1; /* Secondary dark blue */
+      --accent-blue: #42A5F5;    /* Light blue, leaning towards sky blue */
+      --accent-green: #66BB6A;   /* Moderate green for buttons and success */
+      --text-light: #F5F5F5;     /* Very light text */
+      --text-medium: #BBDEFB;    /* Light blue text for some details */
+      --text-dark: #212121;      /* Dark text when needed */
+      --card-bg: rgba(255, 255, 255, 0.08); /* Transparent, opaque card background */
+      --border-color: #4DD0E1;   /* Border color - turquoise inspired by the logo */
+      /* New color for offer card background inside the locker */
+      --offer-card-bg: rgba(0, 0, 0, 0.2); /* Darker, transparent background for offers */
 
-      /* ألوان جديدة مستوحاة من الشعار للوكر ولون النص */
-      --locker-header-blue: #58B1F8; /* أزرق فاتح لشعار اللعبة */
-      --locker-text-blue: #9CCBEF;   /* أزرق متوسط للنصوص */
-      --offer-border-glow: #3E8AD7; /* توهج أزرق للحدود */
-      --offer-item-bg: rgba(28, 48, 77, 0.7); /* خلفية داكنة للعروض مع شفافية */
+      /* New logo-inspired colors for the locker and text color */
+      --locker-header-blue: #58B1F8; /* Light blue for game logo */
+      --locker-text-blue: #9CCBEF;   /* Medium blue for texts */
+      --offer-border-glow: #3E8AD7; /* Blue glow for borders */
+      --offer-item-bg: rgba(28, 48, 77, 0.7); /* Dark background for offers with transparency */
+      --highlight-yellow: #FFEB3B; /* Yellow for highlighting "1 task" */
     }
 
     body {
@@ -54,6 +55,7 @@
       background: linear-gradient(90deg, #4DD0E1, var(--accent-blue));
       -webkit-background-clip: text;
       color: transparent;
+      margin-bottom: 30px;
     }
     .card {
       background: var(--card-bg);
@@ -75,6 +77,7 @@
       flex-direction: column;
       gap: 12px;
       margin-top: 20px;
+      margin-bottom: 20px;
     }
     .btn {
       background: linear-gradient(90deg, var(--accent-blue), var(--secondary-dark-blue));
@@ -112,93 +115,35 @@
         margin-bottom: 20px;
         font-weight: bold;
     }
+    /* Video size adjustment */
+    .video-container .vimeo-video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        background: black;
+    }
+    .video-container .vimeo-video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 
-    .slideshow-container {
-      position: relative;
-      margin: 30px 0;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      background: var(--card-bg);
-    }
-    .slide {
-      display: none;
-      position: relative;
-    }
-    .slide.active {
-      display: block;
-    }
-    .slide img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid var(--accent-blue);
-    }
-    .slide-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: auto;
-      background: linear-gradient(transparent, rgba(0,0,0,0.8));
-      padding: 20px;
-      color: white;
-      text-align: left;
-    }
-    .slide-title {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: var(--accent-blue);
-    }
-    .slide-description {
-      font-size: 14px;
-      opacity: 0.9;
-    }
-    .prev, .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      padding: 15px 20px;
-      cursor: pointer;
-      font-size: 18px;
-      border-radius: 0 5px 5px 0;
-      transition: background 0.3s;
-      z-index: 10;
-    }
-    .prev {
-      left: 0;
-      right: auto;
-      border-radius: 0 5px 5px 0;
-    }
-    .next {
-      right: 0;
-      left: auto;
-      border-radius: 5px 0 0 5px;
-    }
-    .prev:hover, .next:hover {
-      background: rgba(0,0,0,0.8);
-    }
-    .dots-container {
-      text-align: center;
-      padding: 20px 0;
-    }
-    .dot {
-      cursor: pointer;
-      height: 15px;
-      width: 15px;
-      margin: 0 5px;
-      background-color: rgba(255,255,255,0.3);
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.3s;
-    }
-    .dot.active, .dot:hover {
-      background-color: var(--accent-blue);
-    }
+    /* Slideshow container removed */
+    /* .slideshow-container { ... } */
+    /* .slide { ... } */
+    /* .slide.active { ... } */
+    /* .slide img { ... } */
+    /* .slide-content { ... } */
+    /* .slide-title { ... } */
+    /* .slide-description { ... } */
+    /* .prev, .next { ... } */
+    /* .dots-container { ... } */
+    /* .dot { ... } */
+
     .live-chat {
         background: #1F2C3A;
         margin: 40px 0 20px 0;
@@ -305,31 +250,7 @@
         box-shadow: 0 5px 10px rgba(102, 187, 106, 0.3);
     }
 
-    .game-description {
-      margin: 30px 0;
-      padding: 20px;
-      border-radius: 12px;
-      background-color: #263238;
-      color: var(--text-light);
-      border: 1px solid #455A64;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-      text-align: left;
-    }
-    .game-description h2 {
-        font-size: 26px;
-        font-weight: bold;
-        color: var(--accent-blue);
-        margin-bottom: 15px;
-        text-align: center;
-    }
-    .game-description p {
-        font-size: 16px;
-        line-height: 1.7;
-        margin-bottom: 15px;
-    }
-    .game-description strong {
-        color: var(--accent-green);
-    }
+    /* .game-description styles removed */
 
     .legal {
       font-size: 11px;
@@ -343,88 +264,89 @@
       text-decoration: underline;
     }
 
-    /* أنماط تراكب اللوكر العامة */
+    /* General Locker Overlay Styles */
     .locker-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.9); /* خلفية شفافة تغطي الشاشة */
+      background: rgba(0, 0, 0, 0.9);
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 1000; /* ترتيب الطبقة ليكون فوق كل شيء */
+      z-index: 1000;
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-      overflow-y: auto; /* للسماح بالتمرير إذا كان المحتوى أكبر من الشاشة */
+      overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
     .locker-overlay.active {
       opacity: 1;
       visibility: visible;
     }
-    /* أنماط محتوى اللوكر/اختيار الحجم ليكون بملء الشاشة ويشبه الصورة */
+    /* Locker content/size selection to be full-screen, image-like */
     .locker-content, .size-selection-content {
-      background: linear-gradient(180deg, #2962FF 0%, #0044FF 100%); /* تدرج أزرق قوي من الأعلى للأسفل */
-      border: none; /* إزالة أي حدود */
-      border-radius: 0; /* لا توجد حواف دائرية لملء الشاشة */
-      padding: 0; /* إزالة أي padding داخلي للتحكم الكامل */
-      margin: 0; /* إزالة أي هوامش لملء الشاشة */
-      width: 100%; /* تأخذ كامل عرض الشاشة */
-      max-width: 100%; /* الحد الأقصى للعرض هو 100% */
-      height: 100%; /* تأخذ كامل ارتفاع الشاشة */
-      max-height: 100%; /* الحد الأقصى للارتفاع هو 100% */
-      text-align: center; /* توسيط النص */
-      box-shadow: none; /* إزالة أي ظلال */
-      position: relative; /* تحديد الموقع كـ relative */
-      animation: none; /* إزالة أي رسوم متحركة للظهور الفوري */
-      box-sizing: border-box; /* تضمين padding و border داخل العرض والارتفاع */
-      color: var(--text-light); /* لون النص الفاتح */
-      display: flex; /* استخدام flexbox لتنظيم المحتوى */
-      flex-direction: column; /* العناصر عمودية */
-      justify-content: flex-start; /* محاذاة العناصر من الأعلى إلى الأسفل (لإعطاء مساحة للهيدر) */
-      align-items: center; /* توسيط العناصر أفقياً */
-      overflow-y: auto; /* تمكين التمرير إذا كان المحتوى أكبر من الشاشة */
+      background: linear-gradient(180deg, #2962FF 0%, #0044FF 100%);
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      max-height: 100%;
+      text-align: center;
+      box-shadow: none;
+      position: relative;
+      animation: none;
+      box-sizing: border-box;
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      overflow-y: auto;
     }
 
-    /* أنماط الهيدر داخل نافذة اختيار الحجم */
+    /* Header styles inside size selection window */
     .size-selection-header {
-      padding: 50px 20px 30px 20px; /* padding علوي كبير ليكون مثل الصورة */
-      width: 100%; /* جعل عرض الهيدر 100% */
-      box-sizing: border-box; /* تضمين padding داخل العرض */
+      padding: 50px 20px 30px 20px;
+      width: 100%;
+      box-sizing: border-box;
     }
     .size-selection-header h2 {
-      font-size: 26px; /* حجم خط العنوان */
-      font-weight: bold; /* خط عريض */
-      color: var(--text-light); /* لون أبيض للعناوين الرئيسية */
+      font-size: 26px;
+      font-weight: bold;
+      color: var(--text-light);
       text-shadow: 0 0 8px rgba(66, 165, 245, 0.5);
-      margin-bottom: 15px; /* مسافة أسفل العنوان */
+      margin-bottom: 15px;
     }
     .size-selection-header p {
-      font-size: 15px; /* حجم خط النص */
-      color: var(--text-light); /* لون أبيض للنصوص الفرعية */
-      line-height: 1.6; /* تباعد الأسطر */
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.6;
     }
 
-    /* أنماط خيارات الأحجام (البطاقات) */
+    /* Size options (cards) styles */
     .size-options {
         display: flex;
         flex-direction: column;
         gap: 15px;
-        margin-top: 20px; /* مسافة أعلى الخيارات */
-        width: 90%; /* عرض 90% لخيارات الأحجام */
-        max-width: 450px; /* تحديد أقصى عرض لخيارات الأحجام */
-        margin: 20px auto 0 auto; /* توسيط خيارات الأحجام */
+        margin-top: 20px;
+        width: 90%;
+        max-width: 450px;
+        margin: 20px auto 0 auto;
     }
     .size-option-card {
-        background: rgba(255, 255, 255, 0.15); /* خلفية شفافة للبطاقات */
-        border: none; /* إزالة أي حدود */
-        border-radius: 10px; /* زوايا دائرية */
+        /* New colors matching the logo */
+        background: linear-gradient(45deg, rgba(77, 208, 225, 0.15), rgba(66, 165, 245, 0.15)); /* Transparent turquoise-blue gradient */
+        border: 2px solid var(--border-color); /* Border in logo color (turquoise) */
+        border-radius: 10px;
         padding: 15px 20px;
         text-align: left;
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s;
         cursor: pointer;
         display: flex;
         flex-direction: column;
@@ -433,25 +355,26 @@
     }
     .size-option-card:hover {
         transform: translateY(-3px);
-        box-shadow: 0 5px 20px rgba(66, 165, 245, 0.4);
+        box-shadow: 0 5px 20px rgba(77, 208, 225, 0.4); /* Turquoise glow on hover */
+        border-color: #4DD0E1; /* Logo color on hover */
     }
     .size-option-card .version-name {
-        font-size: 17px; /* حجم خط اسم النسخة */
+        font-size: 17px;
         font-weight: bold;
-        color: var(--text-light); /* أبيض لاسم النسخة */
+        color: var(--text-light);
         display: flex;
         align-items: center;
         gap: 10px;
     }
     .size-option-card .details {
-        font-size: 13.5px; /* حجم خط التفاصيل */
-        color: var(--text-light); /* أبيض للتفاصيل */
-        margin-left: 30px; /* مسافة بادئة للتفاصيل */
-        line-height: 1.4; /* تحسين تباعد الأسطر */
+        font-size: 13.5px;
+        color: var(--text-medium);
+        margin-left: 30px;
+        line-height: 1.4;
     }
     .size-option-card .download-btn {
-        background: var(--accent-green); /* أخضر لزر التحميل */
-        color: var(--text-dark); /* نص داكن لزر التحميل */
+        background: var(--accent-green);
+        color: var(--text-dark);
         padding: 10px 15px;
         border-radius: 8px;
         font-weight: bold;
@@ -464,30 +387,33 @@
         transition: background 0.2s, transform 0.2s;
         border: none;
         cursor: pointer;
-        font-size: 15px; /* حجم خط الزر */
+        font-size: 15px;
     }
     .size-option-card .download-btn:hover {
         transform: scale(1.02);
         background: linear-gradient(90deg, #81C784, #66BB6A);
     }
+    .highlight-task { /* New style for highlighting "1 task" */
+        color: var(--highlight-yellow);
+        font-weight: bold;
+    }
 
-    /* رسالة التذييل في اللوكر */
+    /* Footer message in locker */
     .locker-footer-message {
-      /* تم تغيير هذه الأنماط لتتناسب مع الصورة وتجنب التداخل */
-      position: relative; /* تغيير من absolute إلى relative لتجنب التداخل */
-      margin-top: 30px; /* إضافة مسافة علوية لدفعه للأسفل */
-      padding: 0 20px 20px 20px; /* إضافة padding سفلي */
+      position: relative;
+      margin-top: 30px;
+      padding: 0 20px 20px 20px;
       text-align: center;
-      font-size: 14px; /* زيادة حجم الخط قليلاً ليكون أوضح */
+      font-size: 14px;
       color: var(--text-light);
-      width: 100%; /* للتأكد من أخذ العرض الكامل */
+      width: 100%;
       box-sizing: border-box;
     }
     .locker-footer-message strong {
       color: #FFEB3B;
     }
 
-    /* زر الإغلاق (X) - تم إبقاؤه لـ offerLocker فقط، وإزالته من sizeSelectionLocker في HTML */
+    /* Close button (X) */
     .close-locker {
       position: absolute;
       top: 15px;
@@ -504,12 +430,12 @@
       color: var(--accent-blue);
     }
 
-    /* لوكر العروض - لا يزال مخفياً لأنه يتم التعامل معه بواسطة السكريبت الخارجي */
+    /* Offer Locker - still hidden as it's handled by external script */
     #offerLocker {
       display: none;
     }
 
-    /* مؤشر التحميل - يمكن الاحتفاظ به لأي استخدامات أخرى */
+    /* Loading Spinner */
     .loading-spinner {
       border: 6px solid #f3f3f3;
       border-top: 6px solid var(--accent-blue);
@@ -528,13 +454,13 @@
       100% { transform: rotate(360deg); }
     }
 
-    /* استعلامات الوسائط للاستجابة الأفضل على الشاشات الصغيرة */
+    /* Media queries for better responsiveness on small screens */
     @media (max-width: 600px) {
         .locker-content, .size-selection-content {
-            padding: 0; /* إزالة padding لملء الشاشة على الجوال */
+            padding: 0;
         }
         .size-selection-header {
-            padding-top: 40px; /* تقليل padding العلوي على الجوال */
+            padding-top: 40px;
         }
         .size-selection-header h2 {
             font-size: 24px;
@@ -543,7 +469,7 @@
             font-size: 14px;
         }
         .size-options {
-            width: 95%; /* زيادة عرض الخيارات على الجوال */
+            width: 95%;
         }
         .size-option-card .version-name {
             font-size: 16px;
@@ -552,7 +478,7 @@
             font-size: 13px;
         }
         .locker-footer-message {
-            font-size: 13px; /* تصغير حجم الخط للتذييل على الجوال */
+            font-size: 13px;
             padding-bottom: 15px;
         }
     }
@@ -572,51 +498,10 @@
 
     <div class="video-container">
         <h2>Watch Our Quick Tutorial to Download!</h2>
-        <div style="padding:177.78% 0 0 0;position:relative;">
-            <iframe src="https://player.vimeo.com/video/1097034518?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Rematch Mobile Download  "></iframe>
+        <div class="vimeo-video-wrapper">
+            <iframe src="https://player.vimeo.com/video/1097034518?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Rematch Mobile Download"></iframe>
         </div>
         <script src="https://player.vimeo.com/api/player.js"></script>
-    </div>
-
-    <div class="slideshow-container">
-      <div class="slide active">
-        <img src="https://i.ibb.co/HLXpSZQL/2.png" alt="Gameplay Screenshot 1">
-        <div class="slide-content">
-          <div class="slide-title">Dynamic Matches</div>
-          <div class="slide-description">Experience fast-paced 5v5 football action!</div>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="https://i.ibb.co/qYhLXnJ6/1.png" alt="Gameplay Screenshot 2">
-        <div class="slide-content">
-          <div class="slide-title">Stunning Graphics</div>
-          <div class="slide-description">Immersive 3D visuals on your mobile device.</div>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="https://i.ibb.co/4nLXkPwL/3.png" alt="Gameplay Screenshot 3">
-        <div class="slide-content">
-          <div class="slide-title">Intuitive Controls</div>
-          <div class="slide-description">Master passes, shots, and special moves effortlessly.</div>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="https://i.ibb.co/GvzTDhxY/4.png" alt="Gameplay Screenshot 4">
-        <div class="slide-content">
-          <div class="slide-title">Global Leaderboards</div>
-          <div class="slide-description">Compete with players worldwide and climb the ranks.</div>
-        </div>
-      </div>
-
-      <button class="prev" onclick="changeSlide(-1)">❮</button>
-      <button class="next" onclick="changeSlide(1)">❯</button>
-    </div>
-
-    <div class="dots-container">
-      <span class="dot active" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span>
     </div>
 
     <div class="live-chat">
@@ -634,12 +519,6 @@
         </div>
     </div>
 
-    <div class="game-description">
-      <h2>About Rematch Mobile</h2>
-      <p><strong>Rematch Mobile</strong> is a lightning-fast, skill-based football game inspired by the highly anticipated PC and console title, "Rematch." Dive into intense <strong>5v5 matches</strong> featuring polished <strong>3D graphics</strong> and <strong>intuitive controls</strong> that let you master passing, sprinting, shooting, and even in-game emotes! Each match is short, action-packed, and perfect for quick gaming sessions.</p>
-      <p>While the game currently offers engaging offline play against improved AI, an <strong>online multiplayer mode</strong> is launching soon, set to be a true game-changer! Climb the <strong>global leaderboard</strong> and showcase your abilities. This <strong>free-to-play</strong> title prioritizes <strong>player skill, timing, and strategic decisions</strong> over "pay-to-win" mechanics. Prepare for an addictive experience with stunning visuals!</p>
-    </div>
-
     <div class="legal">
       <p>Disclaimer: This is a fan-made landing page for promotional purposes only. We are not affiliated with the developers of Rematch. All content is for entertainment and marketing use.</p>
       <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
@@ -651,27 +530,27 @@
     <div class="size-selection-content">
       <div class="size-selection-header">
         <h2>Choose Your Rematch Mobile Download! 🚀</h2>
-        <p>Select your preferred game version below. Complete a quick offer to get instant access! 💪</p>
+        <p>Select your preferred game version below. Complete a <span class="highlight-task">quick task</span> to get instant access! 💪</p>
       </div>
 
       <div class="size-options">
         <div class="size-option-card">
           <div class="version-name"><i class="fas fa-mobile-alt"></i> Lite Version (Optimized)</div>
-          <div class="details">Size: <strong>1.2 GB</strong> • Requires only <strong>1 quick offer</strong> for instant unlock!</div>
+          <div class="details">Size: <strong>1.2 GB</strong> • Requires only <span class="highlight-task">1 task</span> for instant unlock!</div>
           <button class="download-btn" onclick="showPopUpLocker()">
             <i class="fas fa-download"></i> Download 1.2 GB
           </button>
         </div>
         <div class="size-option-card">
           <div class="version-name"><i class="fas fa-compact-disc"></i> Standard Version (Balanced)</div>
-          <div class="details">Size: <strong>2.0 GB</strong> • Requires only <strong>1 quick offer</strong> for instant unlock!</div>
+          <div class="details">Size: <strong>2.0 GB</strong> • Requires only <span class="highlight-task">1 task</span> for instant unlock!</div>
           <button class="download-btn" onclick="showPopUpLocker()">
             <i class="fas fa-download"></i> Download 2.0 GB
           </button>
         </div>
         <div class="size-option-card">
           <div class="version-name"><i class="fas fa-hdd"></i> Full Version (Max Graphics)</div>
-          <div class="details">Size: <strong>3.5 GB</strong> • Requires only <strong>1 quick offer</strong> for instant unlock!</div>
+          <div class="details">Size: <strong>3.5 GB</strong> • Requires only <span class="highlight-task">1 task</span> for instant unlock!</div>
           <button class="download-btn" onclick="showPopUpLocker()">
             <i class="fas fa-download"></i> Download 3.5 GB
           </button>
@@ -716,6 +595,8 @@
     } else {
         console.log("jQuery is loaded.");
 
+        // Slideshow JS functions removed as slideshow HTML is removed
+        /*
         let slideIndex = 1;
         showSlide(slideIndex);
 
@@ -749,17 +630,20 @@
         setInterval(function() {
           changeSlide(1);
         }, 5000);
+        */
 
         const firstNames = [
             "Apex", "Blaze", "Cyber", "Dusk", "Elite", "Flare", "Glitch", "Hyper", "Ignis", "Jolt",
             "Kratos", "Lumen", "Mantle", "Nebula", "Orbit", "Phoenix", "Quasar", "Rift", "Specter", "Titan",
-            "Vortex", "Wyrm", "Xenon", "Yield", "Zephyr", "Astra", "Bolt", "Comet", "Draco", "Echo"
+            "Vortex", "Wyrm", "Xenon", "Yield", "Zephyr", "Astra", "Bolt", "Comet", "Draco", "Echo",
+            "Nova", "Pixel", "Quantum", "Raven", "Shadow", "Thunder", "Viper", "Warrior", "Zenith", "Gamer",
+            "Legend", "Pro", "Master", "Champ", "Hero", "King", "Queen", "Knight", "Dragon", "Hunter"
         ];
         const lastInitials = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
         const uniqueUsernames = [];
-        for (let i = 0; i < 200; i++) {
-            const firstName = firstNames[i % firstNames.length];
+        for (let i = 0; i < 250; i++) { 
+            const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
             const lastInitial = lastInitials[Math.floor(Math.random() * lastInitials.length)];
             uniqueUsernames.push(`${firstName} ${lastInitial}.`);
         }
@@ -781,37 +665,44 @@
 
         const chatMessages = [];
         const now = new Date();
-        const totalMessages = 200;
+        const totalMessages = 250; 
 
         const gameAdjectives = ["amazing", "awesome", "fantastic", "epic", "superb", "addictive", "smooth", "realistic"];
         const downloadSpeed = ["super fast", "instant", "quick", "blazing speed"];
         const features = ["graphics", "controls", "gameplay", "multiplayer", "updates"];
+        const offerVerbs = ["completed a task", "finished a task", "unlocked via a task", "got access through a task"];
 
         for (let i = 0; i < totalMessages; i++) {
             const username = uniqueUsernames[i];
-            const minutesAgo = Math.floor((i / totalMessages) * 120);
+            const minutesAgo = Math.floor((i / totalMessages) * 180); 
             const time = getTimeAgo(minutesAgo);
 
             const adj = gameAdjectives[Math.floor(Math.random() * gameAdjectives.length)];
             const speed = downloadSpeed[Math.floor(Math.random() * downloadSpeed.length)];
             const feature = features[Math.floor(Math.random() * features.length)];
+            const offerVerb = offerVerbs[Math.floor(Math.random() * offerVerbs.length)];
 
             const messageTemplates = [
-                `Just completed an offer, the download for Rematch Mobile started ${speed}! This is legit!`,
+                `Just completed a task, the download for Rematch Mobile started ${speed}! This is legit!`,
                 `Finally got the game! The ${adj} ${feature} are blowing my mind! Thanks!`,
-                `It's real guys! Completed one offer and got the Lite Version. The game is so ${adj}!`,
-                `Can confirm, this actually works! Download was ${speed} after finishing an offer.`,
+                `It's real guys! Completed one task and got the Lite Version. The game is so ${adj}!`,
+                `Can confirm, this actually works! Download was ${speed} after finishing a task.`,
                 `So happy I found this! Rematch Mobile is ${adj}, and the download process was so smooth.`,
                 `Anyone else downloaded the Full Version? The ${feature} are incredible, totally worth it!`,
                 `This site is legit! Got my download in minutes. Game runs perfectly, ${adj} ${feature}!`,
-                `Initially skeptical, but it's true! Completed an offer and now playing Rematch. It's ${adj}!`,
+                `Initially skeptical, but it's true! Completed a task and now playing Rematch. It's ${adj}!`,
                 `The ${feature} in Rematch Mobile are top-notch. And getting it was so easy!`,
-                `Downloaded the Standard Version. No issues, ${adj} game! Highly recommend trying the offers.`,
-                `The offers are quick to complete, and the download is genuinely ${speed}. Loving the game so far!`,
+                `Downloaded the Standard Version. No issues, ${adj} game! Highly recommend trying the tasks.`,
+                `The tasks are quick to complete, and the download is genuinely ${speed}. Loving the game so far!`,
                 `Finally playing Rematch Mobile! The ${adj} ${feature} make it so immersive. Glad I unlocked it.`,
                 `Unbelievable that this works. Just got my download! Game is running so ${adj} on my phone.`,
-                `To anyone doubting: it's real. Completed an offer, got the game. It's a game-changer!`,
-                `The best mobile football game out there! And the download was ${speed} after the offer. So happy!`
+                `To anyone doubting: it's real. Completed a task, got the game. It's a game-changer!`,
+                `The best mobile football game out there! And the download was ${speed} after the task. So happy!`,
+                `Just ${offerVerb} and Rematch Mobile unlocked instantly! This is a game changer!`,
+                `So glad I did the task, got Rematch Mobile unlocked. This is great!`,
+                `Successfully ${offerVerb}. Rematch Mobile is downloading now, so excited!`,
+                `Just finished a task, Rematch Mobile is finally mine! Thanks a lot!`,
+                `Never thought it would be this easy. Just ${offerVerb} and now I'm playing Rematch.`
             ];
 
             chatMessages.push({
@@ -841,7 +732,7 @@
             `;
             chatContainer.appendChild(messageElement);
 
-            if (chatContainer.children.length > 15) {
+            while (chatContainer.children.length > 15) {
                 chatContainer.removeChild(chatContainer.children[0]);
             }
 
@@ -860,18 +751,18 @@
 
         $(document).ready(function() {
             console.log("DOM fully loaded using jQuery, initializing chat...");
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 10; i++) { 
                 if (chatMessages[i]) addChatMessage(chatMessages[i]);
             }
 
-            let messageIndex = 5;
+            let messageIndex = 10;
             const addNewMessage = () => {
                 if (messageIndex < chatMessages.length) {
                     const message = chatMessages[messageIndex];
-                    if (message && message.timestamp <= new Date()) {
+                    if (message && message.timestamp <= new Date()) { 
                         addChatMessage({
                             ...message,
-                            time: formatTime(message.timestamp)
+                            time: formatTime(message.timestamp) 
                         });
                         messageIndex++;
                     }
@@ -912,7 +803,7 @@
 
                 chatMessageInput.addEventListener('keypress', function(e) {
                     if (e.key === 'Enter') {
-                        e.preventDefault();
+                        e.preventDefault(); 
                         sendMessageButton.click();
                     }
                 });
@@ -937,16 +828,26 @@
             console.log(`Activating external locker via og_load().`);
             hideSizeSelectionLocker();
 
+            const offerLockerTitle = document.getElementById('offerLockerTitle');
+            const offerLockerMessage = document.getElementById('offerLockerMessage');
+
+            if (offerLockerTitle && offerLockerMessage) {
+                offerLockerTitle.textContent = "Unlock Your Content!";
+                offerLockerMessage.textContent = "To proceed with your download, please complete one of the sponsored tasks below. Your download will start automatically upon successful completion!";
+            }
+
             if (typeof og_load === 'function') {
                 og_load();
             } else {
                 console.error("Error: og_load() function is not defined. Ensure the locker script is correctly loaded in <head>.");
-                alert("Failed to load offers. Please try again or check your page setup.");
+                alert("Failed to load tasks. Please try again or check your page setup.");
             }
         }
 
         function hideOfferLocker() {
           console.log("Hiding offer locker placeholder...");
+          document.getElementById('offerLocker').classList.remove('active');
+          document.body.style.overflow = '';
         }
     }
   </script>
