@@ -6,33 +6,24 @@
   <title>Rematch Mobile</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-
-  <script type="text/javascript" id="ogjs" src="https://appverification.net/cl/js/lk262w"></script>
-
   <style>
-    /* New colors inspired by the logo and color scheme */
+    /* الألوان الجديدة المستوحاة من الشعار وتناسق الألوان */
     :root {
-      --primary-dark-blue: #1A237E; /* Strong dark blue */
-      --secondary-dark-blue: #0D47A1; /* Secondary dark blue */
-      --accent-blue: #42A5F5;    /* Light blue, leaning towards sky blue */
-      --accent-green: #66BB6A;   /* Moderate green for buttons and success */
-      --text-light: #F5F5F5;     /* Very light text */
-      --text-medium: #BBDEFB;    /* Light blue text for some details */
-      --text-dark: #212121;      /* Dark text when needed */
-      --card-bg: rgba(255, 255, 255, 0.08); /* Transparent, opaque card background */
-      --border-color: #4DD0E1;   /* Border color - turquoise inspired by the logo */
-      /* New color for offer card background inside the locker */
-      --offer-card-bg: rgba(0, 0, 0, 0.2); /* Darker, transparent background for offers */
-
-      /* New logo-inspired colors for the locker and text color */
-      --locker-header-blue: #58B1F8; /* Light blue for game logo */
-      --locker-text-blue: #9CCBEF;   /* Medium blue for texts */
-      --offer-border-glow: #3E8AD7; /* Blue glow for borders */
-      --offer-item-bg: rgba(28, 48, 77, 0.7); /* Dark background for offers with transparency */
-      --highlight-yellow: #FFEB3B; /* Yellow for highlighting "1 task" */
+      --primary-dark-blue: #1A237E; /* لون أزرق داكن قوي */
+      --secondary-dark-blue: #0D47A1; /* لون أزرق داكن ثانوي جديد بديل للأحمر */
+      --accent-blue: #42A5F5;    /* أزرق فاتح مائل للأزرق السماوي */
+      --accent-green: #66BB6A;   /* أخضر معتدل للأزرار والنجاح */
+      --text-light: #F5F5F5;     /* نص فاتح جداً */
+      --text-medium: #BBDEFB;    /* نص أزرق فاتح لبعض التفاصيل */
+      --text-dark: #212121;      /* نص داكن عند الحاجة */
+      --card-bg: rgba(255, 255, 255, 0.08); /* خلفية البطاقات شفافة معتمة */
+      --border-color: #42A5F5;   /* لون الحدود */
+      /* لون جديد لخلفية بطاقات العروض داخل اللوكر */
+      --offer-card-bg: rgba(0, 0, 0, 0.2); /* خلفية أغمق وشفافة للعروض */
     }
 
     body {
+      /* تم تغيير التدرج اللوني لإزالة اللون الأحمر واستبداله بأزرق داكن آخر */
       background: linear-gradient(135deg, var(--primary-dark-blue) 30%, var(--secondary-dark-blue) 70%);
       color: var(--text-light);
       font-family: 'Poppins', sans-serif;
@@ -52,10 +43,39 @@
       text-align: center;
       font-size: 32px;
       font-weight: 700;
-      background: linear-gradient(90deg, #4DD0E1, var(--accent-blue));
+      /* تم تغيير تدرج اللون هنا ليتناسق مع الألوان الزرقاء */
+      background: linear-gradient(90deg, #4DD0E1, var(--accent-blue)); /* تدرج لوني أزرق أكثر حيوية */
       -webkit-background-clip: text;
       color: transparent;
-      margin-bottom: 30px;
+    }
+    .subtitle {
+      text-align: center;
+      color: var(--text-medium);
+      font-size: 16px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    .trustbar { /* هذا الجزء لم يعد موجودًا، لكن أسلوبه لا يضر بالصفحة */
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 12px;
+      margin: 20px 0;
+      backdrop-filter: blur(6px);
+      font-weight: bold;
+    }
+    .trustbar i { /* هذا الجزء لم يعد موجودًا، لكن أسلوبه لا يضر بالصفحة */
+      font-size: 18px;
+      color: var(--accent-blue);
+      margin-right: 8px;
+      margin-left: 0;
+    }
+    .trustbar span { /* هذا الجزء لم يعد موجودًا، لكن أسلوبه لا يضر بالصفحة */
+      color: var(--text-light);
+      font-size: 14px;
     }
     .card {
       background: var(--card-bg);
@@ -77,9 +97,9 @@
       flex-direction: column;
       gap: 12px;
       margin-top: 20px;
-      margin-bottom: 20px;
     }
     .btn {
+      /* تم تغيير تدرج اللون لإزالة اللون الأحمر */
       background: linear-gradient(90deg, var(--accent-blue), var(--secondary-dark-blue));
       color: white;
       padding: 12px;
@@ -97,59 +117,17 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
     .btn-apple {
-      background: linear-gradient(90deg, #4DD0E1, var(--primary-dark-blue));
+      background: linear-gradient(90deg, #4DD0E1, var(--primary-dark-blue)); /* تدرج أزرق متناسق */
     }
+    /* تمت إزالة أنماط عروض الشرائح بالكامل */
 
-    .video-container {
-      margin: 30px 0;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      background: var(--card-bg);
-      padding: 15px;
-    }
-    .video-container h2 {
-        text-align: center;
-        font-size: 24px;
-        color: var(--accent-blue);
-        margin-bottom: 20px;
-        font-weight: bold;
-    }
-    /* Video size adjustment */
-    .video-container .vimeo-video-wrapper {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 aspect ratio */
-        height: 0;
-        overflow: hidden;
-        max-width: 100%;
-        background: black;
-    }
-    .video-container .vimeo-video-wrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    /* Slideshow container removed */
-    /* .slideshow-container { ... } */
-    /* .slide { ... } */
-    /* .slide.active { ... } */
-    /* .slide img { ... } */
-    /* .slide-content { ... } */
-    /* .slide-title { ... } */
-    /* .slide-description { ... } */
-    /* .prev, .next { ... } */
-    /* .dots-container { ... } */
-    /* .dot { ... } */
-
+    /* Chat specific styles */
     .live-chat {
-        background: #1F2C3A;
+        background: #1F2C3A; /* خلفية الدردشة أزرق داكن معتم */
         margin: 40px 0 20px 0;
         border-radius: 12px;
         padding: 15px;
-        border: 1px solid #4A6581;
+        border: 1px solid #4A6581; /* حدود أزرق رمادي */
         box-shadow: 0 5px 15px rgba(0,0,0,0.4);
     }
     .chat-header {
@@ -159,12 +137,12 @@
         margin-bottom: 15px;
     }
     .chat-title {
-        color: var(--accent-green);
+        color: var(--accent-green); /* أخضر للعناوين */
         font-size: 20px;
         font-weight: bold;
     }
     .online-count {
-        background: rgba(102, 187, 106, 0.15);
+        background: rgba(102, 187, 106, 0.15); /* خلفية خضراء شفافة */
         color: var(--accent-green);
         padding: 5px 10px;
         border-radius: 20px;
@@ -196,13 +174,13 @@
         margin-bottom: 12px;
     }
     .user {
-        color: #81C784;
+        color: #81C784; /* أخضر فاتح للمستخدمين */
         font-weight: bold;
         margin-right: 5px;
         margin-left: 0;
     }
     .message-time {
-        color: #BDBDBB;
+        color: #BDBDBD; /* رمادي فاتح للوقت */
         font-size: 12px;
         margin-left: 5px;
         margin-right: 0;
@@ -223,7 +201,7 @@
         padding: 12px 15px;
         border-radius: 20px;
         border: none;
-        background: #2D4057;
+        background: #2D4057; /* خلفية إدخال أزرق داكن */
         color: white;
         font-size: 14px;
         min-height: 20px;
@@ -232,7 +210,7 @@
         text-align: left;
     }
     #send-message {
-        background: var(--accent-green);
+        background: var(--accent-green); /* أخضر لزر الإرسال */
         color: var(--text-dark);
         border: none;
         padding: 10px 15px;
@@ -250,11 +228,59 @@
         box-shadow: 0 5px 10px rgba(102, 187, 106, 0.3);
     }
 
-    /* .game-description styles removed */
+    /* Video Player Styles */
+    .video-container {
+        position: relative;
+        width: 100%;
+        max-width: 560px; /* Adjust as needed for smaller size */
+        margin: 30px auto;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        background: var(--card-bg);
+        border: 1px solid var(--accent-blue);
+    }
+    .video-container iframe {
+        width: 100%;
+        height: 315px; /* Standard Vime embed height, can be adjusted */
+        display: block;
+    }
+    .fullscreen-btn {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 12px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.3s;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .fullscreen-btn:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+    
+    /* Style for video explanation heading */
+    .video-explanation-heading {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--accent-blue); /* لون أزرق فاتح جميل */
+        margin-top: 30px;
+        margin-bottom: 15px;
+        text-shadow: 0 0 10px rgba(66, 165, 245, 0.6); /* ظل خفيف لتحسين المظهر */
+    }
 
+    /* Fixed footer position */
     .legal {
       font-size: 11px;
-      color: #90A4AE;
+      color: #90A4AE; /* رمادي مزرق */
       text-align: center;
       margin-top: 40px;
       font-weight: bold;
@@ -264,7 +290,7 @@
       text-decoration: underline;
     }
 
-    /* General Locker Overlay Styles */
+    /* --- Universal Locker Overlay Styles --- */
     .locker-overlay {
       position: fixed;
       top: 0;
@@ -286,67 +312,90 @@
       opacity: 1;
       visibility: visible;
     }
-    /* Locker content/size selection to be full-screen, image-like */
-    .locker-content, .size-selection-content {
-      background: linear-gradient(180deg, #2962FF 0%, #0044FF 100%);
-      border: none;
-      border-radius: 0;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-      max-width: 100%;
-      height: 100%;
-      max-height: 100%;
+    .locker-content {
+      /* تم تغيير التدرج اللوني لإزالة اللون الأحمر واستبداله بأزرق داكن آخر */
+      background: linear-gradient(135deg, var(--primary-dark-blue) 30%, var(--secondary-dark-blue) 70%);
+      border: 2px solid var(--accent-blue);
+      border-radius: 15px;
+      padding: 30px 20px;
+      max-width: 95%;
+      width: 500px;
       text-align: center;
-      box-shadow: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       position: relative;
-      animation: none;
+      animation: fadeInScale 0.4s ease-out forwards;
       box-sizing: border-box;
-      color: var(--text-light);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
+      max-height: 90vh;
       overflow-y: auto;
+      color: var(--text-light);
+    }
+    @keyframes fadeInScale {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .close-locker {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--text-medium);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .close-locker:hover {
+      color: var(--accent-blue); /* تغيير لون الإغلاق عند التحويم ليتناسق */
     }
 
-    /* Header styles inside size selection window */
+    /* --- Size Selection Locker Styles --- */
+    #sizeSelectionLocker {
+      /* This overlay will be identical to .locker-overlay */
+    }
+    .size-selection-content {
+        /* تم تغيير التدرج اللوني لإزالة اللون الأحمر واستبداله بأزرق داكن آخر */
+        background: linear-gradient(135deg, var(--primary-dark-blue) 30%, var(--secondary-dark-blue) 70%);
+        border: 2px solid var(--accent-blue);
+        border-radius: 15px;
+        padding: 30px 20px;
+        max-width: 95%;
+        width: 500px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        position: relative;
+        box-sizing: border-box;
+        max-height: 90vh;
+        overflow-y: auto;
+        color: var(--text-light);
+    }
     .size-selection-header {
-      padding: 50px 20px 30px 20px;
-      width: 100%;
-      box-sizing: border-box;
+        margin-bottom: 25px;
     }
     .size-selection-header h2 {
-      font-size: 26px;
-      font-weight: bold;
-      color: var(--text-light);
-      text-shadow: 0 0 8px rgba(66, 165, 245, 0.5);
-      margin-bottom: 15px;
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--accent-blue);
+        text-shadow: 0 0 8px rgba(66, 165, 245, 0.5);
+        margin-bottom: 10px;
     }
     .size-selection-header p {
-      font-size: 15px;
-      color: var(--text-light);
-      line-height: 1.6;
+        font-size: 16px;
+        color: var(--text-medium);
+        line-height: 1.6;
     }
-
-    /* Size options (cards) styles */
     .size-options {
         display: flex;
         flex-direction: column;
         gap: 15px;
-        margin-top: 20px;
-        width: 90%;
-        max-width: 450px;
-        margin: 20px auto 0 auto;
+        margin-top: 25px;
     }
     .size-option-card {
-        /* New colors matching the logo */
-        background: linear-gradient(45deg, rgba(77, 208, 225, 0.15), rgba(66, 165, 245, 0.15)); /* Transparent turquoise-blue gradient */
-        border: 2px solid var(--border-color); /* Border in logo color (turquoise) */
-        border-radius: 10px;
+        background: var(--card-bg);
+        border: 1px solid var(--accent-blue);
+        border-radius: 12px;
         padding: 15px 20px;
         text-align: left;
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         cursor: pointer;
         display: flex;
         flex-direction: column;
@@ -355,25 +404,23 @@
     }
     .size-option-card:hover {
         transform: translateY(-3px);
-        box-shadow: 0 5px 20px rgba(77, 208, 225, 0.4); /* Turquoise glow on hover */
-        border-color: #4DD0E1; /* Logo color on hover */
+        box-shadow: 0 5px 20px rgba(66, 165, 245, 0.4);
     }
     .size-option-card .version-name {
-        font-size: 17px;
+        font-size: 18px;
         font-weight: bold;
-        color: var(--text-light);
+        color: var(--accent-blue); /* تم تغيير اللون ليتناسق مع لوحة الألوان الزرقاء */
         display: flex;
         align-items: center;
         gap: 10px;
     }
     .size-option-card .details {
-        font-size: 13.5px;
-        color: var(--text-medium);
+        font-size: 14px;
+        color: var(--text-light);
         margin-left: 30px;
-        line-height: 1.4;
     }
     .size-option-card .download-btn {
-        background: var(--accent-green);
+        background: linear-gradient(90deg, var(--accent-green), #4CAF50); /* تدرج أخضر للأزرار */
         color: var(--text-dark);
         padding: 10px 15px;
         border-radius: 8px;
@@ -387,54 +434,144 @@
         transition: background 0.2s, transform 0.2s;
         border: none;
         cursor: pointer;
-        font-size: 15px;
     }
     .size-option-card .download-btn:hover {
         transform: scale(1.02);
         background: linear-gradient(90deg, #81C784, #66BB6A);
     }
-    .highlight-task { /* New style for highlighting "1 task" */
-        color: var(--highlight-yellow);
+
+    /* --- Offer Locker Styles (Consistent with page colors) --- */
+    #offerLocker {
+      /* This overlay will use the same styles as .locker-overlay */
+    }
+    .offer-locker-content {
+      /* Inherits from .locker-content */
+    }
+    .offer-locker-header {
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    .offer-locker-header h2 {
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--accent-blue);
+        text-shadow: 0 0 8px rgba(66, 165, 245, 0.5);
+        margin-bottom: 10px;
+    }
+    .offer-locker-header p {
+        font-size: 16px;
+        color: var(--text-medium);
+        line-height: 1.6;
+    }
+    .offer-locker-header p strong {
+        color: #FFEB3B; /* أصفر للتركيز */
+    }
+    .locker-info-bar {
+        display: flex;
+        justify-content: space-around;
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        padding: 10px;
+        margin: 20px 0;
+        backdrop-filter: blur(6px);
         font-weight: bold;
+        font-size: 14px;
+        color: var(--text-light);
+    }
+    .locker-info-bar div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .locker-info-bar i {
+        font-size: 16px;
+        color: var(--accent-blue);
     }
 
-    /* Footer message in locker */
+    .locker-offers-list {
+      margin: 25px 0;
+      padding: 0;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      list-style: none;
+    }
+    .offer-item-card {
+        /* الخلفية الجديدة للعروض لزيادة التباين */
+        background: var(--offer-card-bg); /* استخدام المتغير الجديد */
+        border-left: 5px solid var(--accent-blue); /* أزرق بدلاً من الأحمر */
+        padding: 15px;
+        border-radius: 10px;
+        text-align: left;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .offer-item-card:hover {
+        transform: translateY(-3px);
+        /* ظل أزرق عند التحويم ليتناسق */
+        box-shadow: 0 5px 15px rgba(66, 165, 245, 0.3);
+    }
+    .offer-item-card .offer-title {
+        font-size: 17px;
+        font-weight: bold;
+        color: var(--text-light);
+        margin-bottom: 5px;
+    }
+    .offer-item-card .offer-details-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .offer-item-card .offer-description {
+        font-size: 13px;
+        color: #BDBDBD;
+        flex-grow: 1;
+        margin-right: 10px;
+    }
+    .offer-item-card .offer-points {
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--accent-green);
+        white-space: nowrap;
+    }
+    .offer-item-card .offer-action-btn {
+        background: linear-gradient(90deg, var(--accent-blue), var(--primary-dark-blue));
+        color: white;
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 14px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        transition: background 0.2s, transform 0.2s;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .offer-item-card .offer-action-btn:hover {
+        transform: scale(1.02);
+        background: linear-gradient(90deg, #64B5F6, #42A5F5);
+    }
+
     .locker-footer-message {
-      position: relative;
-      margin-top: 30px;
-      padding: 0 20px 20px 20px;
-      text-align: center;
       font-size: 14px;
-      color: var(--text-light);
-      width: 100%;
-      box-sizing: border-box;
+      color: #90A4AE;
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
     }
     .locker-footer-message strong {
       color: #FFEB3B;
     }
-
-    /* Close button (X) */
-    .close-locker {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: none;
-      border: none;
-      font-size: 24px;
-      color: var(--text-medium);
-      cursor: pointer;
-      transition: color 0.2s;
-      z-index: 1001;
-    }
-    .close-locker:hover {
-      color: var(--accent-blue);
-    }
-
-    /* Offer Locker - still hidden as it's handled by external script */
-    #offerLocker {
-      display: none;
-    }
-
     /* Loading Spinner */
     .loading-spinner {
       border: 6px solid #f3f3f3;
@@ -457,19 +594,14 @@
     /* Media queries for better responsiveness on small screens */
     @media (max-width: 600px) {
         .locker-content, .size-selection-content {
-            padding: 0;
+            padding: 20px 15px;
+            width: 98%;
         }
-        .size-selection-header {
-            padding-top: 40px;
-        }
-        .size-selection-header h2 {
+        .size-selection-header h2, .offer-locker-header h2 {
             font-size: 24px;
         }
-        .size-selection-header p {
+        .size-selection-header p, .offer-locker-header p {
             font-size: 14px;
-        }
-        .size-options {
-            width: 95%;
         }
         .size-option-card .version-name {
             font-size: 16px;
@@ -477,9 +609,21 @@
         .size-option-card .details {
             font-size: 13px;
         }
-        .locker-footer-message {
+        .locker-info-bar {
+            flex-direction: column;
+            gap: 8px;
+        }
+        .offer-item-card .offer-title {
+            font-size: 16px;
+        }
+        .offer-item-card .offer-description {
+            font-size: 12px;
+        }
+        .offer-item-card .offer-points {
             font-size: 13px;
-            padding-bottom: 15px;
+        }
+        .video-container iframe {
+            height: 200px; /* Adjust height for smaller screens */
         }
     }
   </style>
@@ -487,6 +631,7 @@
 <body>
   <div class="container">
     <h1 class="title">Rematch Mobile</h1>
+    <p class="subtitle">Exclusive Game • Unlocked Features • No Ads</p>
     <div class="card">
       <img src="https://i.ibb.co/V0FtzNHF/tumblr-66d808e1e336f09e0daaf6e0c420fe28-cfc9feef-512.jpg" alt="Rematch Game" class="game-image">
       <p style="text-align:center; margin-top: 15px; font-weight: bold;">Unlock the full game instantly! Get the best Rematch Mobile experience!</p>
@@ -496,12 +641,11 @@
       </div>
     </div>
 
+    <h2 class="video-explanation-heading">Watch Our Video Guide: How to Download & Play!</h2>
+
     <div class="video-container">
-        <h2>Watch Our Quick Tutorial to Download!</h2>
-        <div class="vimeo-video-wrapper">
-            <iframe src="https://player.vimeo.com/video/1097034518?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Rematch Mobile Download"></iframe>
-        </div>
-        <script src="https://player.vimeo.com/api/player.js"></script>
+        <iframe id="gameVideo" src="https://player.vimeo.com/video/1097034518?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="2160" height="3840" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Rematch Mobile Download  "></iframe>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()"><i class="fas fa-expand"></i> Fullscreen</button>
     </div>
 
     <div class="live-chat">
@@ -528,31 +672,32 @@
 
   <div class="locker-overlay" id="sizeSelectionLocker">
     <div class="size-selection-content">
+      <button class="close-locker" onclick="hideSizeSelectionLocker()">×</button>
       <div class="size-selection-header">
         <h2>Choose Your Rematch Mobile Download! 🚀</h2>
-        <p>Select your preferred game version below. Complete a <span class="highlight-task">quick task</span> to get instant access! 💪</p>
+        <p>Select your preferred game version below. The smaller the size, the quicker the unlock! 💪</p>
       </div>
 
       <div class="size-options">
         <div class="size-option-card">
-          <div class="version-name"><i class="fas fa-mobile-alt"></i> Lite Version (Optimized)</div>
-          <div class="details">Size: <strong>1.2 GB</strong> • Requires only <span class="highlight-task">1 task</span> for instant unlock!</div>
-          <button class="download-btn" onclick="showPopUpLocker()">
-            <i class="fas fa-download"></i> Download 1.2 GB
+          <div class="version-name"><i class="fas fa-hdd"></i> Full Version (Max Graphics)</div>
+          <div class="details">Size: <strong>3.5 GB</strong> • Requires <strong>3 quick offers</strong> for instant unlock!</div>
+          <button class="download-btn" onclick="showOfferLocker(3, 'Full Version (Max Graphics)', '3.5 GB')">
+            <i class="fas fa-download"></i> Download 3.5 GB
           </button>
         </div>
         <div class="size-option-card">
           <div class="version-name"><i class="fas fa-compact-disc"></i> Standard Version (Balanced)</div>
-          <div class="details">Size: <strong>2.0 GB</strong> • Requires only <span class="highlight-task">1 task</span> for instant unlock!</div>
-          <button class="download-btn" onclick="showPopUpLocker()">
+          <div class="details">Size: <strong>2.0 GB</strong> • Requires <strong>2 fast offers</strong> for instant unlock!</div>
+          <button class="download-btn" onclick="showOfferLocker(2, 'Standard Version (Balanced)', '2.0 GB')">
             <i class="fas fa-download"></i> Download 2.0 GB
           </button>
         </div>
         <div class="size-option-card">
-          <div class="version-name"><i class="fas fa-hdd"></i> Full Version (Max Graphics)</div>
-          <div class="details">Size: <strong>3.5 GB</strong> • Requires only <span class="highlight-task">1 task</span> for instant unlock!</div>
-          <button class="download-btn" onclick="showPopUpLocker()">
-            <i class="fas fa-download"></i> Download 3.5 GB
+          <div class="version-name"><i class="fas fa-mobile-alt"></i> Lite Version (Optimized)</div>
+          <div class="details">Size: <strong>1.2 GB</strong> • Requires only <strong>1 quick offer</strong> for instant unlock!</div>
+          <button class="download-btn" onclick="showOfferLocker(1, 'Lite Version (Optimized)', '1.2 GB')">
+            <i class="fas fa-download"></i> Download 1.2 GB
           </button>
         </div>
       </div>
@@ -564,7 +709,7 @@
 
   <div class="locker-overlay" id="offerLocker">
     <div class="locker-content offer-locker-content">
-      <button class="close-locker" onclick="hideOfferLocker()">&times;</button>
+      <button class="close-locker" onclick="hideOfferLocker()">×</button>
       <div class="offer-locker-header">
         <h2 id="offerLockerTitle"></h2>
         <p id="offerLockerMessage"></p>
@@ -580,7 +725,7 @@
 
       <ul class="locker-offers-list" id="lockerOffersList">
         </ul>
-
+      
       <p class="locker-footer-message">
         Your download will start <strong style="color: #FFEB3B;">automatically</strong> after successful completion! Don't miss out! 🎮
       </p>
@@ -590,60 +735,45 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script>
+    // تأكيد تحميل jQuery قبل محاولة استخدامها
     if (typeof jQuery == 'undefined') {
         console.error("jQuery is not loaded! Some functionalities might not work.");
+        // يمكن إضافة fallback هنا أو إظهار رسالة للمستخدم
     } else {
         console.log("jQuery is loaded.");
 
-        // Slideshow JS functions removed as slideshow HTML is removed
-        /*
-        let slideIndex = 1;
-        showSlide(slideIndex);
-
-        function changeSlide(n) {
-          showSlide(slideIndex += n);
+        // --- Video Fullscreen Logic (Vimeo) ---
+        function toggleFullscreen() {
+            const iframe = document.getElementById('gameVideo');
+            if (iframe) {
+                if (iframe.requestFullscreen) {
+                    iframe.requestFullscreen();
+                } else if (iframe.mozRequestFullScreen) { /* Firefox */
+                    iframe.mozRequestFullScreen();
+                } else if (iframe.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                    iframe.webkitRequestFullscreen();
+                } else if (iframe.msRequestFullscreen) { /* IE/Edge */
+                    iframe.msRequestFullscreen();
+                }
+            } else {
+                console.error("Video element not found!");
+            }
         }
 
-        function currentSlide(n) {
-          showSlide(slideIndex = n);
-        }
-
-        function showSlide(n) {
-          let slides = document.getElementsByClassName("slide");
-          let dots = document.getElementsByClassName("dot");
-
-          if (n > slides.length) {slideIndex = 1}
-          if (n < 1) {slideIndex = slides.length}
-
-          for (let i = 0; i < slides.length; i++) {
-            slides[i].classList.remove("active");
-          }
-
-          for (let i = 0; i < dots.length; i++) {
-            dots[i].classList.remove("active");
-          }
-
-          if (slides[slideIndex-1]) slides[slideIndex-1].classList.add("active");
-          if (dots[slideIndex-1]) dots[slideIndex-1].classList.add("active");
-        }
-
-        setInterval(function() {
-          changeSlide(1);
-        }, 5000);
-        */
-
+        // --- Chat JavaScript ---
         const firstNames = [
-            "Apex", "Blaze", "Cyber", "Dusk", "Elite", "Flare", "Glitch", "Hyper", "Ignis", "Jolt",
-            "Kratos", "Lumen", "Mantle", "Nebula", "Orbit", "Phoenix", "Quasar", "Rift", "Specter", "Titan",
-            "Vortex", "Wyrm", "Xenon", "Yield", "Zephyr", "Astra", "Bolt", "Comet", "Draco", "Echo",
-            "Nova", "Pixel", "Quantum", "Raven", "Shadow", "Thunder", "Viper", "Warrior", "Zenith", "Gamer",
-            "Legend", "Pro", "Master", "Champ", "Hero", "King", "Queen", "Knight", "Dragon", "Hunter"
+            "Alex", "Blaze", "Crypto", "Dragon", "Epic", "Fang", "Ghost", "Havoc", "Jade", "Krypto",
+            "Lunar", "Mystic", "Neon", "Omega", "Phantom", "Quantum", "Rogue", "Stealth", "Titan", "Vortex",
+            "Ace", "Bandit", "Cosmo", "Dash", "Echo", "Flare", "Grim", "Hex", "Ice", "Jinx",
+            "Kai", "Lux", "Mako", "Nova", "Onyx", "Pax", "Quill", "Rift", "Sage", "Talon",
+            "Umbra", "Vex", "Wraith", "Xeno", "Yuri", "Zane", "Ash", "Bolt", "Cinder", "Dusk"
         ];
         const lastInitials = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+        const versions = ["Standard", "Premium", "Pro"];
 
         const uniqueUsernames = [];
-        for (let i = 0; i < 250; i++) { 
-            const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+        for (let i = 0; i < 200; i++) {
+            const firstName = firstNames[i % firstNames.length];
             const lastInitial = lastInitials[Math.floor(Math.random() * lastInitials.length)];
             uniqueUsernames.push(`${firstName} ${lastInitial}.`);
         }
@@ -665,44 +795,38 @@
 
         const chatMessages = [];
         const now = new Date();
-        const totalMessages = 250; 
+        const totalMessages = 200;
 
-        const gameAdjectives = ["amazing", "awesome", "fantastic", "epic", "superb", "addictive", "smooth", "realistic"];
-        const downloadSpeed = ["super fast", "instant", "quick", "blazing speed"];
-        const features = ["graphics", "controls", "gameplay", "multiplayer", "updates"];
-        const offerVerbs = ["completed a task", "finished a task", "unlocked via a task", "got access through a task"];
+        // Improved chat messages focused on football game experience
+        const footballTerms = ["goal", "assist", "tackle", "dribble", "shot", "save", "pass", "cross", "header", "volley"];
+        const skillLevels = ["beginner", "intermediate", "advanced", "pro", "expert"];
+        const positions = ["striker", "midfielder", "defender", "goalkeeper", "winger"];
 
         for (let i = 0; i < totalMessages; i++) {
             const username = uniqueUsernames[i];
-            const minutesAgo = Math.floor((i / totalMessages) * 180); 
+            const minutesAgo = Math.floor((i / totalMessages) * 120);
             const time = getTimeAgo(minutesAgo);
 
-            const adj = gameAdjectives[Math.floor(Math.random() * gameAdjectives.length)];
-            const speed = downloadSpeed[Math.floor(Math.random() * downloadSpeed.length)];
-            const feature = features[Math.floor(Math.random() * features.length)];
-            const offerVerb = offerVerbs[Math.floor(Math.random() * offerVerbs.length)];
+            const footballTerm = footballTerms[Math.floor(Math.random() * footballTerms.length)];
+            const skillLevel = skillLevels[Math.floor(Math.random() * skillLevels.length)];
+            const position = positions[Math.floor(Math.random() * positions.length)];
 
             const messageTemplates = [
-                `Just completed a task, the download for Rematch Mobile started ${speed}! This is legit!`,
-                `Finally got the game! The ${adj} ${feature} are blowing my mind! Thanks!`,
-                `It's real guys! Completed one task and got the Lite Version. The game is so ${adj}!`,
-                `Can confirm, this actually works! Download was ${speed} after finishing a task.`,
-                `So happy I found this! Rematch Mobile is ${adj}, and the download process was so smooth.`,
-                `Anyone else downloaded the Full Version? The ${feature} are incredible, totally worth it!`,
-                `This site is legit! Got my download in minutes. Game runs perfectly, ${adj} ${feature}!`,
-                `Initially skeptical, but it's true! Completed a task and now playing Rematch. It's ${adj}!`,
-                `The ${feature} in Rematch Mobile are top-notch. And getting it was so easy!`,
-                `Downloaded the Standard Version. No issues, ${adj} game! Highly recommend trying the tasks.`,
-                `The tasks are quick to complete, and the download is genuinely ${speed}. Loving the game so far!`,
-                `Finally playing Rematch Mobile! The ${adj} ${feature} make it so immersive. Glad I unlocked it.`,
-                `Unbelievable that this works. Just got my download! Game is running so ${adj} on my phone.`,
-                `To anyone doubting: it's real. Completed a task, got the game. It's a game-changer!`,
-                `The best mobile football game out there! And the download was ${speed} after the task. So happy!`,
-                `Just ${offerVerb} and Rematch Mobile unlocked instantly! This is a game changer!`,
-                `So glad I did the task, got Rematch Mobile unlocked. This is great!`,
-                `Successfully ${offerVerb}. Rematch Mobile is downloading now, so excited!`,
-                `Just finished a task, Rematch Mobile is finally mine! Thanks a lot!`,
-                `Never thought it would be this easy. Just ${offerVerb} and now I'm playing Rematch.`
+                `Just scored an amazing ${footballTerm}! This game's physics are incredible! ⚽`,
+                `The ${position} controls are so smooth in Rematch Mobile! Best football game ever!`,
+                `Anyone else struggling with ${footballTerm} at ${skillLevel} level? Need tips!`,
+                `My ${position} skills have improved so much playing this game! 🔥`,
+                `Can't stop playing Rematch Mobile! The ${footballTerm} mechanics are perfect!`,
+                `Just had an epic match with 5 ${footballTerm}s! This game is addictive!`,
+                `The ${position} AI is so smart in this game! Really challenges you to improve.`,
+                `How do you perform the special ${footballTerm} move? Can't figure it out!`,
+                `Rematch Mobile has the best ${position} gameplay I've experienced on mobile!`,
+                `After 50 matches, I finally mastered the ${footballTerm} technique! So satisfying!`,
+                `The ${position} controls are so responsive! Makes scoring ${footballTerm}s so rewarding!`,
+                `Just reached ${skillLevel} level! This game keeps getting better the more you play!`,
+                `Anyone want to share their best ${position} strategies? Looking to improve my game!`,
+                `The way the ball moves during a ${footballTerm} is so realistic! Amazing physics!`,
+                `Can't believe this is free! The ${position} animations are console quality!`
             ];
 
             chatMessages.push({
@@ -732,7 +856,7 @@
             `;
             chatContainer.appendChild(messageElement);
 
-            while (chatContainer.children.length > 15) {
+            if (chatContainer.children.length > 15) {
                 chatContainer.removeChild(chatContainer.children[0]);
             }
 
@@ -749,20 +873,21 @@
             onlineCountElement.textContent = `🔴 ${onlineCount} Online`;
         }
 
+        // استخدام jQuery's $(document).ready للتأكد من تحميل DOM
         $(document).ready(function() {
             console.log("DOM fully loaded using jQuery, initializing chat...");
-            for (let i = 0; i < 10; i++) { 
+            for (let i = 0; i < 5; i++) {
                 if (chatMessages[i]) addChatMessage(chatMessages[i]);
             }
 
-            let messageIndex = 10;
+            let messageIndex = 5;
             const addNewMessage = () => {
                 if (messageIndex < chatMessages.length) {
                     const message = chatMessages[messageIndex];
-                    if (message && message.timestamp <= new Date()) { 
+                    if (message && message.timestamp <= new Date()) {
                         addChatMessage({
                             ...message,
-                            time: formatTime(message.timestamp) 
+                            time: formatTime(message.timestamp)
                         });
                         messageIndex++;
                     }
@@ -803,7 +928,7 @@
 
                 chatMessageInput.addEventListener('keypress', function(e) {
                     if (e.key === 'Enter') {
-                        e.preventDefault(); 
+                        e.preventDefault();
                         sendMessageButton.click();
                     }
                 });
@@ -812,44 +937,162 @@
             }
         });
 
+
+        // --- Advanced Content Locker Logic ---
+        const API_KEY_OFFERS = "4e2db9e379007942fc92050da3ab5461"; // تأكد أن هذا المفتاح صحيح
+        const USER_ID = "572120"; // تأكد أن هذا المعرف صحيح
+
+        // Main function to show the size selection locker
         function showSizeSelectionLocker() {
           console.log("Showing size selection locker...");
           document.getElementById('sizeSelectionLocker').classList.add('active');
-          document.body.style.overflow = 'hidden';
+          document.body.style.overflow = 'hidden'; // Prevent scrolling body
         }
 
+        // Function to hide the size selection locker
         function hideSizeSelectionLocker() {
           console.log("Hiding size selection locker...");
           document.getElementById('sizeSelectionLocker').classList.remove('active');
-          document.body.style.overflow = '';
+          document.body.style.overflow = ''; // Allow body scrolling
         }
 
-        function showPopUpLocker() {
-            console.log(`Activating external locker via og_load().`);
-            hideSizeSelectionLocker();
+        // Function to show the offer locker for a specific download size
+        let currentOffersRequired = 0;
+        let currentVersionName = "";
+        let currentFileSize = "";
 
-            const offerLockerTitle = document.getElementById('offerLockerTitle');
-            const offerLockerMessage = document.getElementById('offerLockerMessage');
+        function showOfferLocker(offersRequired, versionName, fileSize) {
+          currentOffersRequired = offersRequired;
+          currentVersionName = versionName;
+          currentFileSize = fileSize;
 
-            if (offerLockerTitle && offerLockerMessage) {
-                offerLockerTitle.textContent = "Unlock Your Content!";
-                offerLockerMessage.textContent = "To proceed with your download, please complete one of the sponsored tasks below. Your download will start automatically upon successful completion!";
-            }
+          console.log(`Showing offer locker for ${versionName} (${fileSize}), requiring ${offersRequired} offers.`);
+          
+          hideSizeSelectionLocker(); // Hide size selection first
 
-            if (typeof og_load === 'function') {
-                og_load();
-            } else {
-                console.error("Error: og_load() function is not defined. Ensure the locker script is correctly loaded in <head>.");
-                alert("Failed to load tasks. Please try again or check your page setup.");
-            }
+          const offerLocker = document.getElementById('offerLocker');
+          const offerLockerTitle = document.getElementById('offerLockerTitle');
+          const offerLockerMessage = document.getElementById('offerLockerMessage');
+          const offerLockerSpinner = document.getElementById('offerLockerSpinner');
+          const lockerOffersList = document.getElementById('lockerOffersList');
+
+          if (!offerLocker || !offerLockerTitle || !offerLockerMessage || !offerLockerSpinner || !lockerOffersList) {
+              console.error("One or more offer locker elements not found!");
+              return;
+          }
+
+          offerLockerTitle.textContent = `Unlock Your ${fileSize} Rematch Mobile Download!`;
+          offerLockerMessage.innerHTML = `Complete <strong>${offersRequired} quick offer${offersRequired > 1 ? 's' : ''}</strong> below to start your ${versionName} download automatically! It's fast and easy. 🎉`;
+
+          offerLocker.classList.add('active'); // Show the offer locker
+          offerLockerSpinner.classList.add('active'); // Show spinner
+          lockerOffersList.style.display = 'none'; // Hide list until offers are loaded
+          lockerOffersList.innerHTML = ''; // Clear previous offers
+
+          setTimeout(() => {
+            fetchOffers(offersRequired);
+          }, 1500); // Simulate loading time
         }
 
+        // Function to hide the offer locker
         function hideOfferLocker() {
-          console.log("Hiding offer locker placeholder...");
+          console.log("Hiding offer locker...");
           document.getElementById('offerLocker').classList.remove('active');
-          document.body.style.overflow = '';
+          document.body.style.overflow = ''; // Allow body scrolling
         }
-    }
+
+        // Function to fetch and display offers
+        function fetchOffers(numOffersToDisplay) {
+          console.log(`Fetching offers to display ${numOffersToDisplay} of them...`);
+          const offerLockerSpinner = document.getElementById('offerLockerSpinner');
+          const lockerOffersList = document.getElementById('lockerOffersList');
+
+          // استخدام المتغيرات المعرفة بشكل صحيح في نفس السكوب
+          $.getJSON(`https://d3o07fqjkwc0s0.cloudfront.net/public/offers/feed.php?user_id=${USER_ID}&api_key=${API_KEY_OFFERS}&callback=?`)
+            .done(function(offersData) {
+              console.log("Offers fetched successfully:", offersData);
+              offerLockerSpinner.classList.remove('active');
+
+              let offers = offersData;
+              let html = '';
+
+              if (offers.length < numOffersToDisplay) {
+                  console.warn(`Not enough offers returned (${offers.length}) to display ${numOffersToDisplay}.`);
+                  lockerOffersList.style.display = 'block';
+                  lockerOffersList.innerHTML = `<p style="color: var(--accent-blue); text-align: center;">Oops! Not enough offers available right now (${offers.length} of ${numOffersToDisplay} required). Please try again later or choose a smaller version! 😔</p>`;
+                  return;
+              }
+
+              lockerOffersList.style.display = 'flex'; // Ensure list is flex column
+
+              $.each(offers.slice(0, numOffersToDisplay), function(index, offer) {
+                // Use offer.anchor for title, and offer.conversion for description if available
+                const offerTitle = offer.anchor || `Offer ${index + 1}`;
+                const offerDescription = offer.conversion || `Complete this task to earn progress towards your download!`;
+                const offerPoints = (offer.points / 100).toFixed(2); // Convert points to currency
+
+                html += `
+                  <li class="offer-item-card">
+                    <div class="offer-title"><i class="fas fa-tasks"></i> ${offerTitle}</div>
+                    <div class="offer-details-row">
+                        <div class="offer-description">${offerDescription}</div>
+                        <div class="offer-points">+${offerPoints} Credits</div>
+                    </div>
+                    <a href="${offer.url}" target="_blank" class="offer-action-btn" onclick="handleOfferClick('${offer.offer_id}')">
+                      <i class="fas fa-play"></i> Start Offer
+                    </a>
+                  </li>
+                `;
+              });
+              $(lockerOffersList).append(html); // Append offers to the list
+
+            })
+            .fail(function(jqxhr, textStatus, error) {
+                console.error("Request to offers API Failed: " + textStatus + ", " + error, jqxhr.responseText);
+                offerLockerSpinner.classList.remove('active');
+                lockerOffersList.style.display = 'block';
+                lockerOffersList.innerHTML = '<p style="color: var(--accent-blue); text-align: center;">Error loading offers. Please check your API key or network connection. ⚠️</p>';
+            });
+        }
+
+        function handleOfferClick(offerId) {
+            console.log(`User clicked on offer ID: ${offerId}. Opening offer in new tab...`);
+            //Removed the alert() here to allow direct navigation.
+            //You might want to periodically check for leads after an offer click.
+            //For example:
+            //setInterval(checkLeads, 10000); // Check every 10 seconds (adjust interval as needed)
+        }
+
+        function checkLeads() {
+            console.log("Checking for leads...");
+            // This is a dummy check for demonstration. In a real app, this would be more robust.
+            // استخدام المتغيرات المعرفة بشكل صحيح في نفس السكوب
+            $.getJSON(`https://d3o07fqjkwc0s0.cloudfront.net/public/external/check2.php?user_id=${USER_ID}&api_key=${API_KEY_OFFERS}&testing=0&callback=?`)
+                .done(function (leads) { // استخدام .done بدلاً من function (leads) مباشرة في jQuery 3+
+                    var completed_leads = leads.length;
+                    if (completed_leads >= currentOffersRequired) {
+                        var offer_ids = [];
+                        var earnings_in_cents = 0;
+                        $.each(leads, function (key, lead) {
+                            offer_ids.push(parseInt(lead.offer_id));
+                            earnings_in_cents += parseFloat(lead.points);
+                        });
+                        console.log(`SUMMARY: User has completed ${completed_leads} leads (required ${currentOffersRequired}), for $${(earnings_in_cents / 100).toFixed(2)} earnings, on offer ids: ${offer_ids.join(",")}`);
+
+                        alert(`Congratulations! Your Rematch Mobile (${currentFileSize}) download will now begin! 🎉`);
+                        hideOfferLocker();
+                        // Replace with your actual game download link
+                        // window.location.href = `YOUR_GAME_DOWNLOAD_LINK_FOR_${currentFileSize.replace('.', '_')}_HERE`;
+                    }
+                    else {
+                        console.log(`Not enough leads found yet. Completed: ${completed_leads}, Required: ${currentOffersRequired}.`);
+                    }
+                })
+                .fail(function(jqxhr, textStatus, error) {
+                    console.error("Request to check leads API Failed: " + textStatus + ", " + error, jqxhr.responseText);
+                });
+        }
+    } // نهاية else التي تتحقق من تحميل jQuery
   </script>
 </body>
 </html>
